@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Example</title>
+    <script src="./script.ts" type="module"></script>
+    <script src="https://sdk.scdn.co/spotify-player.js"></script>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap.min.css">
+    <!--<link rel="stylesheet" type="text/css" rel="noopener" target="_blank" href="mystyles.css">-->
+</head>
+
+<body>
+    <h1>Display Spotify profile data</h1>
+
+    <section id="profile">
+        <h2>Logged in as <span id="displayName"></span></h2>
+        <span id="avatar"></span>
+        <ul>
+            <li>User ID: <span id="id"></span></li>
+            <li>Email: <span id="email"></span></li>
+            <li>Spotify URI: <a id="uri" href="#"></a></li>
+            <li>Link: <a id="url" href="#"></a></li>
+            <li>Profile Image: <span id="imgUrl"></span></li>
+        </ul>
+    </section>
+
+
+
+    <h1>Your Top Tracks</h1>
+
+    <section id="topTracks">
+        <span id="trackImg"></span>
+        <ul>
+            <li>Track Name: <span id="trackName"></span></li>
+        </ul>
+        <ul id="myList"></ul>
+
+
+
+        <!-- TABLE -->
+
+        <table id="myTable" class="table table-striped table-bordered" style="width:100%">
+            <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Artist</th>
+                        <th>Album</th>
+                        <th>Popularity</th>
+                        <th>Track ID</th>
+                        
+                    </tr>
+                </thead>
+                
+        </table>
+
+    </section>
+
+
+
+
+    <h1>Playback </h1>
+
+    <button id="togglePlay">Toggle Play</button>
+
+
+</html>

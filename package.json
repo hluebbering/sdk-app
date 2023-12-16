@@ -1,0 +1,60 @@
+{
+  "name": "sdk-app",
+  "homepage": "https://hluebbering.github.io/sdk-app",
+  "version": "1.1.2",
+  "description": "A typescript SDK for the Spotify Web API",
+  "main": "dist/cjs/index.js",
+  "module": "dist/mjs/index.js",
+  "types": "dist/mjs/index.d.ts",
+  "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "start": "npx vite serve",
+    "test": "vitest run",
+    "ci": "npm run build",
+    "build": "npm run build:win",
+    "build:mjs": "tsc --project tsconfig.mjs.json && cp res/package.mjs.json dist/mjs/package.json",
+    "build:cjs": "tsc --project tsconfig.cjs.json && cp res/package.cjs.json dist/cjs/package.json",
+    "build:win": "npm run build:cjs-win && npm run build:mjs-win",
+    "build:mjs-win": "tsc --project tsconfig.mjs.json && xcopy .\\res\\package.mjs.json .\\dist\\mjs\\package.json /-I /Y",
+    "build:cjs-win": "tsc --project tsconfig.cjs.json && xcopy .\\res\\package.cjs.json .\\dist\\cjs\\package.json /-I /Y"
+  },
+  "exports": {
+    "import": "./dist/mjs/index.js",
+    "require": "./dist/cjs/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hluebbering/sdk-app"
+  },
+  "author": "Spotify",
+  "license": "Apache",
+  "devDependencies": {
+    "@types/node": "^20.3.2",
+    "@types/uuid": "^9.0.2",
+    "dotenv": "^16.3.1",
+    "gh-pages": "^6.1.0",
+    "jsdom": "^22.1.0",
+    "playwright": "^1.35.1",
+    "typescript": "^5.1.6",
+    "uuid": "^9.0.0",
+    "vite": "^4.3.9",
+    "vitest": "^0.32.2"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "spotify",
+    "webapi"
+  ],
+  "wallaby": {
+    "autoDetect": [
+      "vitest"
+    ],
+    "trace": true
+  },
+  "dependencies": {
+    "datatables.net-dt": "^1.13.8"
+  }
+}
