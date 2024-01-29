@@ -3,6 +3,7 @@
   "homepage": "https://hluebbering.github.io/sdk-app/docs",
   "version": "1.1.2",
   "description": "A typescript SDK for the Spotify Web API",
+  "private": true,
   "main": "dist/cjs/index.js",
   "module": "dist/mjs/index.js",
   "types": "dist/mjs/index.d.ts",
@@ -12,7 +13,7 @@
     "start": "npx vite serve",
     "test": "vitest run",
     "ci": "npm run build",
-    "build": "npm run build:cjs && npm run build:mjs",
+    "build": "npm run build:cjs-win && npm run build:mjs-win",
     "build:mjs": "tsc --project tsconfig.mjs.json && cp res/package.mjs.json dist/mjs/package.json",
     "build:cjs": "tsc --project tsconfig.cjs.json && cp res/package.cjs.json dist/cjs/package.json",
     "build:win": "npm run build:cjs-win && npm run build:mjs-win",
@@ -55,6 +56,7 @@
     "trace": true
   },
   "dependencies": {
+    "@spotify/web-api-ts-sdk": "^1.1.2",
     "datatables.net-dt": "^1.13.8"
   }
 }
